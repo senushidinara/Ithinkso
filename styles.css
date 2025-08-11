@@ -1,0 +1,32 @@
+:root{
+  --bg:#061025; --card:#07182a; --muted:#9fb3c8; --accent:#2bb3ff; --accent2:#16a34a;
+  --glass: rgba(255,255,255,0.03);
+}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(180deg,var(--bg),#07293e);color:#e6f3ff;font-family:Inter,system-ui,Segoe UI,Roboto,Arial}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:14px 20px}
+.brand{font-weight:800;font-size:18px;color:var(--accent)}
+.controls{display:flex;gap:8px}
+.btn{background:linear-gradient(90deg,var(--accent),#5ce1ff);border:none;padding:8px 12px;border-radius:8px;color:#022;cursor:pointer;font-weight:600}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+.tabs{display:flex;gap:8px;padding:10px 20px}
+.tab{padding:8px 14px;border-radius:999px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.02);cursor:pointer}
+.tab.active{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#001}
+.layout{display:grid;grid-template-columns:1fr 360px;gap:18px;padding:18px}
+.panel{display:flex;gap:18px}
+.left{flex:1}
+.right{width:360px}
+.card{background:var(--card);border-radius:12px;padding:14px;border:1px solid rgba(255,255,255,0.03)}
+.stimulus{height:140px;border-radius:10px;background:linear-gradient(180deg,#eaf6ff,#eefbff);display:flex;align-items:center;justify-content:center;font-size:48px;color:#07223a;transition:transform .18s ease}
+.actions{display:flex;align-items:center;gap:12px;margin-top:12px}
+.big{padding:12px 18px;font-size:16px}
+.small{font-size:13px;color:var(--muted)}
+.muted{color:var(--muted)}
+.metric{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed rgba(255,255,255,0.02)}
+.sessionList{max-height:140px;overflow:auto}
+.pill{background:rgba(255,255,255,0.03);padding:6px 10px;border-radius:999px}
+.row{display:flex;align-items:center;gap:8px;margin-top:8px}
+.flow{display:flex;flex-direction:column;gap:8px}
+.code{background:#062433;padding:10px;border-radius:8px;color:#cce8ff;font-family:monospace}
+.hidden{display:none}
+.foot{padding:14px 20px;text-align:center}
