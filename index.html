@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NeuroLogicX — Advanced</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div id="root">
+    <header class="topbar">
+      <div class="brand">NeuroLogicX</div>
+      <div class="controls">
+        <button id="btnExport" class="btn">Export Data</button>
+        <button id="btnClear" class="btn ghost">Clear</button>
+      </div>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab active" data-tab="train">Train</button>
+      <button class="tab" data-tab="mindful">Mindfulness</button>
+      <button class="tab" data-tab="track">Tracking</button>
+      <button class="tab" data-tab="eeg">EEG</button>
+      <button class="tab" data-tab="settings">Settings</button>
+    </nav>
+
+    <main class="layout">
+      <section id="tab-train" class="panel">
+        <div class="left">
+          <div class="card">
+            <h3>Active Task</h3>
+            <div id="taskArea">
+              <div id="stimulus" class="stimulus">—</div>
+
+              <div class="actions">
+                <button id="btnStart" class="btn big">Start Session</button>
+                <div class="muted small">Trials: <span id="trialCount">12</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card flow" id="gameControls">
+            <div><label>Game type</label>
+              <select id="gameType">
+                <option value="reaction">Reaction</option>
+                <option value="nback">N-Back</option>
+                <option value="dual">Dual-Task</option>
+                <option value="memory">Memory Match</option>
+              </select>
+            </div>
+
+            <div class="row">
+              <label>Difficulty</label>
+              <div id="difficultyBadge" class="pill">Auto</div>
+            </div>
+
+            <div class="row">
+              <label>Sound feedback</label>
+              <input type="checkbox" id="soundToggle" checked>
+            </div>
+          </div>
+        </div>
+
+        <aside class="right">
+          <div class="card">
+            <h4>Live Metrics</h4>
+            <div class="metric"><span>Avg RT</span><b id="liveRT">—</b></div>
+            <div class="metric"><span>Accuracy</span><b id="liveAcc">—</b></div>
+            <div class="metric"><span>Engagement</span><b id="liveEng">—</b></div>
+            <div class="metric"><span>Streak</span><b id="liveStreak">0</b></div>
+          </div>
+
+          <div class="card">
+            <h4>Recent Sessions</h4>
+            <div id="sessionList" class="sessionList small muted">No sessions yet</div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="tab-mindful" class="panel hidden">
+        <div class="card">
+          <h3>Mindfulness & Micro-Practices</h3>
+          <div id="medList"></div>
+        </div>
+      </section>
+
+      <section id="tab-track" class="panel hidden">
+        <div class="card">
+          <h3>Performance Trends</h3>
+          <canvas id="performanceChart" height="160"></canvas>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h3>Band Timeline (simulated)</h3>
+          <canvas id="bandsChart" height="160"></canvas>
+        </div>
+      </section>
+
+      <section id="tab-eeg" class="panel hidden">
+        <div class="card">
+          <h3>EEG Waveform Animation (simulated)</h3>
+          <canvas id="eegCanvas" width="900" height="200" style="width:100%;height:200px;border-radius:8px"></canvas>
+          <div class="muted small" style="margin-top:8px">The waveform is synthesized in real-time from your interaction-derived bands.</div>
+        </div>
+      </section>
+
+      <section id="tab-settings" class="panel hidden">
+        <div class="card">
+          <h3>Settings & Explanations</h3>
+          <pre class="code">
+All data local.
+Difficulty scales by moving-average composite score:
+composite = 0.6*accuracy_z + 0.3*(baselineRT/currentRT) + 0.1*(1 - RTvar_norm)
+Level up if composite > movingAvg + threshold for window.
+          </pre>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot muted">Local-first prototype • No API keys required</footer>
+  </div>
+
+  <!-- App scripts -->
+  <script type="module" src="src/sound.js"></script>
+  <script type="module" src="src/eeg_wave.js"></script>
+  <script type="module" src="src/charts.js"></script>
+  <script type="module" src="src/engine.js"></script>
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>
