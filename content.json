@@ -1,0 +1,56 @@
+{
+  "meta": { "app": "NeuroLogicX", "version": "1.0.1", "date": "2025-08-11" },
+  "meditations": [
+    {
+      "id": "breath2",
+      "title": "2-min Breath Reset (Video + Audio)",
+      "duration": 120,
+      "video": "https://cdn.pixabay.com/video/2022/09/05/13/07/ocean-7498544_1280.mp4",
+      "audio": "https://cdn.pixabay.com/audio/2022/02/15/audio_3a7b8d2f6f.mp3",
+      "license": "pixabay-cc0"
+    },
+    {
+      "id": "body8",
+      "title": "8-min Body Scan (Calm Nature Visual)",
+      "duration": 480,
+      "video": "https://cdn.pixabay.com/video/2016/12/26/17/28/field-1932463_1280.mp4",
+      "audio": "https://cdn.pixabay.com/audio/2022/03/01/audio_1f6cb7a8d7.mp3",
+      "license": "pixabay-cc0"
+    }
+  ],
+  "challengeTemplates": [
+    { "type": "reaction", "trialCounts": [8, 12, 16, 24], "timeLimit": 2000 },
+    { "type": "nback", "startN": 2, "maxN": 5, "adaptive": true },
+    { "type": "dual", "trialCounts": [8, 12, 16], "mathRange": [1, 12] },
+    { "type": "memoryMatch", "pairs": [6, 8, 12], "visualPool": 24 }
+  ],
+  "progression": {
+    "baselineWindow": 7,
+    "compositeWeights": { "accuracy": 0.6, "speed": 0.3, "consistency": 0.1 },
+    "levelThreshold": 0.12,
+    "xpPerCorrect": 10,
+    "xpPerFastResponse": 5,
+    "xpForLevelBase": 100,
+    "xpGrowthFactor": 1.4
+  },
+  "eegSimParams": {
+    "baseRT": 500,
+    "scale": 5,
+    "rFactor": 1.6,
+    "windowTrials": 3
+  },
+  "videos": [
+    { "id": "v_breath", "title": "Breathing Beach", "src": "https://cdn.pixabay.com/video/2022/09/05/13/07/ocean-7498544_1280.mp4", "license": "pixabay-cc0" },
+    { "id": "v_field", "title": "Field Timelapse", "src": "https://cdn.pixabay.com/video/2016/12/26/17/28/field-1932463_1280.mp4", "license": "pixabay-cc0" }
+  ],
+  "audio": [
+    { "id": "s_bell", "title": "Soft Bell", "src": "https://cdn.pixabay.com/audio/2022/02/15/audio_3a7b8d2f6f.mp3", "license": "pixabay-cc0" },
+    { "id": "s_breath", "title": "Breathing Guide", "src": "https://cdn.pixabay.com/audio/2022/03/01/audio_1f6cb7a8d7.mp3", "license": "pixabay-cc0" }
+  ],
+  "i18n": {
+    "en": { "welcome": "Welcome to NeuroLogicX", "start": "Start", "stop": "Stop" },
+    "si": { "welcome": "NeuroLogicX වෙත සාදරයෙන් පිළිගනිමු", "start": "ආරම්භය", "stop": "නවත්වන්න" },
+    "ta": { "welcome": "NeuroLogicX க்கு வரவேற்பு", "start": "தொடங்கு", "stop": "நிறுத்து" }
+  },
+  "metadata": { "author": "NeuroLogicX blueprint", "notes": "Complete content with CC0 assets. Replace if you prefer local files." }
+}
